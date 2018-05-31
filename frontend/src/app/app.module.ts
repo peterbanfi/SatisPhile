@@ -13,6 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SatisfactionService } from './satisfaction.service';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SatisfactionService } from './satisfaction.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    Ng2GoogleChartsModule
   ],
   providers: [UserService, CookieService, SatisfactionService],
   bootstrap: [AppComponent]

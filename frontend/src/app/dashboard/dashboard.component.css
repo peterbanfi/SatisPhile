@@ -1,7 +1,44 @@
 i {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 100%;
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 5rem;
   padding: 15%;
+}
+
+.custom-icons {
+  border: 0 transparent;
+  color: #6BBDCA;
+  font-size: 2rem;
+  padding: 1%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  background: #ffffff;
+  border-radius: 5px;
+  height: 15px;
+  opacity: .7;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  width: 100%;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #3AB0C3;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
+.slider::-moz-range-thumb {
+  background: #3AB0C3;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
 }

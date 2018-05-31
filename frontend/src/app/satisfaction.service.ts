@@ -13,6 +13,13 @@ export class SatisfactionService {
     const user = this.cookieService.get('abc');
   }
 
+  addSat(url, satisfaction, options) {
+    this.http.post(url, satisfaction, options)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+
 
 
 }
