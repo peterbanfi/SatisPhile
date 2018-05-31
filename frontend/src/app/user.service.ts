@@ -27,16 +27,13 @@ export class UserService {
   setCookie(options) {
     this.http.get('//localhost:8080/user/profile', options)
       .subscribe(data => {
-        console.log(data);
         this.cookieService.put('abc', data['user']['_id']);
       });
-
   }
 
   logout(url, options) {
     this.http.get(url, options)
       .subscribe(data => {
-        console.log(data);
         this.cookieService.remove('abc');
       });
   }

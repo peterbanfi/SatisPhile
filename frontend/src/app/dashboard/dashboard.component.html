@@ -1,3 +1,40 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+  <div class="section">
+    <div class="row text-center">
+      <div class="col-3">
+        <i class="fas fa-moon"></i>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-utensils"></i>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-gamepad"></i>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-3">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="sleep" aria-valuemin="0" aria-valuemax="100">{{mine[0].sleep}}%</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="food" aria-valuemin="0" aria-valuemax="100">{{mine[0].food}}%</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="work" aria-valuemin="0" aria-valuemax="100">{{mine[0].work}}%</div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="fun" aria-valuemin="0" aria-valuemax="100">{{mine[0].fun}}%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

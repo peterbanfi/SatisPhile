@@ -49,7 +49,6 @@ module.exports = {
    */
   login: (req, res) => res.json({
     login: true,
-    user: req.body,
   }),
   /**
    * És logout

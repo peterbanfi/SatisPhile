@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
 
   login() {
     this.UServ.login(this.baseUrl + 'login', this.user, this.options);
-
   }
 
   logout() {

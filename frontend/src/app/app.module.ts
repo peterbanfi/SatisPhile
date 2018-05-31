@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { SatisfactionService } from './satisfaction.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [UserService, CookieService],
+  providers: [UserService, CookieService, SatisfactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
