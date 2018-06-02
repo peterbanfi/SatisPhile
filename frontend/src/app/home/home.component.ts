@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  togLogin: Boolean = false;
 
 
 
@@ -37,5 +37,9 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.UServ.logout(this.baseUrl + 'logout', this.options);
+  }
+
+  toggleLogin() {
+    this.togLogin = !this.togLogin;
   }
 }

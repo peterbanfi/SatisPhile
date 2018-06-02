@@ -1,0 +1,50 @@
+.custom-bg {
+  background-image: url("../../assets/harmony.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.custom-center {
+  margin-top: 30vh;
+}
+
+.form-control {
+  background-color: rgba(245, 245, 245, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+h5 {
+  font-weight: normal;
+  margin: 3vh;
+}
+
+@media only screen and (max-width: 836px) {
+  h5 {
+    margin: 1vh;
+  }
+  .custom-bg {
+    background-repeat: repeat-y;
+  }
+}
+
+.input-group {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.input-group-text {
+  background-color: rgba(245, 245, 245, 0);
+  border: none;
+  border-right: 1px solid black;
+}
+
+.jumbotron {
+  background: rgba(0, 0, 0, 0.185);
+  color: whitesmoke;
+  height: 100vh;
+  margin-bottom: 0;
+  width: 100%;
+}
