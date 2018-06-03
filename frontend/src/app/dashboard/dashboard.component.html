@@ -1,150 +1,162 @@
-<div class="container">
-  <section>
-    <br>
-    <div class="row">
-      <div class="col-12 text-center">
-        <h4>Add new satisfaction!</h4>
-      </div>
-    </div>
-    <br>
-    <div class="row text-center">
-      <div class="col-3">
-        <h3>Sleep</h3>
-      </div>
-      <div class="col-3">
-        <h3>Food</h3>
-      </div>
-      <div class="col-3">
-        <h3>Work</h3>
-      </div>
-      <div class="col-3">
-        <h3>Fun</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="mySleep" name="mySleep" [(ngModel)]="newSat.sleep">
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myFood" name="myFood" [(ngModel)]="newSat.food">
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myWork" name="myWork" [(ngModel)]="newSat.work">
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myFun" name="myFun" [(ngModel)]="newSat.fun">
-        </div>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-3">
-        <h5>
-          {{newSat.sleep}} %
-        </h5>
-      </div>
-      <div class="col-3">
-        <h5>
-          {{newSat.food}} %
-        </h5>
-      </div>
-      <div class="col-3">
-        <h5>
-          {{newSat.work}} %
-        </h5>
-      </div>
-      <div class="col-3">
-        <h5>
-          {{newSat.fun}} %
-        </h5>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <button type="submit" class="btn btn-block btn-outline-info" (click)="addNewSat()">
-          <i class="fa fa-plus custom-icons"></i>
-        </button>
-      </div>
-      <div class="col-4"></div>
-    </div>
-  </section>
-  <div class="section">
-    <br>
-    <div class="row">
-      <div class="col-12 text-center" *ngIf="dateReady">
-        <h3>{{mine[mine.length-1].createdAt | date:'fullDate'}}</h3>
-      </div>
-    </div>
-    <br>
-    <div class="row text-center">
-      <div class="col-3">
-        <i class="fas fa-moon"></i>
-      </div>
-      <div class="col-3">
-        <i class="fas fa-utensils"></i>
-      </div>
-      <div class="col-3">
-        <i class="fas fa-briefcase"></i>
-      </div>
-      <div class="col-3">
-        <i class="fas fa-gamepad"></i>
-      </div>
-    </div>
-    <br>
-    <div class="row text-center">
-      <div class="col-3">
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="sleep" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].sleep}}%</div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="food" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].food}}%</div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="work" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].work}}%</div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="fun" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].fun}}%</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <section>
-    <br>
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <button type="submit" class="btn btn-block btn-outline-primary" (click)="populateChart()">
-          <i class="fas fa-chart-line  custom-icons"></i>
-        </button>
-      </div>
-      <div class="col-4"></div>
-    </div>
-    <br>
+<section class="custom-bg">
+  <div class="container">
     <section>
+      <br>
       <div class="row">
-        <div class="col-12">
-          <google-chart [data]="pieChartData" *ngIf="displayChart"></google-chart>
+        <div class="col-12 text-center">
+          <h4>Add new satisfaction!</h4>
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col-12">
-          <google-chart [data]="pieChartData2" *ngIf="displayChart"></google-chart>
+      <div class="row text-center">
+        <div class="col-3">
+          <h3>Sleep</h3>
+        </div>
+        <div class="col-3">
+          <h3>Food</h3>
+        </div>
+        <div class="col-3">
+          <h3>Work</h3>
+        </div>
+        <div class="col-3">
+          <h3>Fun</h3>
         </div>
       </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="mySleep" name="mySleep" [(ngModel)]="newSat.sleep">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myFood" name="myFood" [(ngModel)]="newSat.food">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myWork" name="myWork" [(ngModel)]="newSat.work">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myFun" name="myFun" [(ngModel)]="newSat.fun">
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-3">
+          <h5>
+            {{newSat.sleep}} %
+          </h5>
+        </div>
+        <div class="col-3">
+          <h5>
+            {{newSat.food}} %
+          </h5>
+        </div>
+        <div class="col-3">
+          <h5>
+            {{newSat.work}} %
+          </h5>
+        </div>
+        <div class="col-3">
+          <h5>
+            {{newSat.fun}} %
+          </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <button type="submit" class="btn btn-block btn-outline-info" (click)="addNewSat()">
+            <i class="fa fa-plus custom-icons"></i>
+          </button>
+        </div>
+        <div class="col-4"></div>
+      </div>
     </section>
-  </section>
-</div>
+    <div class="section">
+      <br>
+      <div class="row">
+        <div class="col-12 text-center" *ngIf="dateReady">
+          <h3>{{mine[mine.length-1].createdAt | date:'fullDate'}}</h3>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+        <div class="col-3">
+          <i class="fas fa-moon"></i>
+        </div>
+        <div class="col-3">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <div class="col-3">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="col-3">
+          <i class="fas fa-gamepad"></i>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+        <div class="col-3">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="sleep" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].sleep}}%</div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="food" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].food}}%</div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="work" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].work}}%</div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="fun" aria-valuemin="0" aria-valuemax="100">{{mine[mine.length-1].fun}}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <br>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <button type="submit" class="btn btn-block btn-outline-primary" (click)="populateChart()">
+            <i class="fas fa-chart-line  custom-icons"></i>
+          </button>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <br>
+      <!-- CHART -->
+      <section>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Select category</label>
+              <select class="form-control" id="exampleFormControlSelect1" (change)="selectChangeHandler($event)">
+                <option value="sleep" selected>Sleep</option>
+                <option value="food">Food</option>
+                <option value="work">Work</option>
+                <option value="fun">Fun</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <google-chart [data]="pieChartData" *ngIf="displayChart"></google-chart>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</section>

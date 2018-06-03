@@ -22,14 +22,16 @@ export class DashboardComponent implements OnInit {
     fun: 50,
     user: '',
   };
+  sati: any = [];
+  category: any = 'sleep';
   pieChartData = {
     chartType: 'LineChart',
     dataTable: [
-      ['Food Chart', 'Satisfaction'],
+      [`Chart`, 'Satisfaction'],
 
     ],
     options: {
-      'title': 'Food Chart',
+      'title': 'Chart',
       is3D: true,
       curveType: 'function',
       legend: { position: 'top' },
@@ -37,29 +39,13 @@ export class DashboardComponent implements OnInit {
       'height': 300
     },
   };
-  food: any = [];
-  pieChartData2 = {
-    chartType: 'LineChart',
-    dataTable: [
-      ['Fun Chart', 'Satisfaction'],
-
-    ],
-    options: {
-      'title': 'Fun Chart',
-      is3D: true,
-      curveType: 'function',
-      legend: { position: 'top' },
-      'width': '100%',
-      'height': 300
-    },
-  };
-  fun: any = [];
   displayChart: Boolean = false;
   dateReady: Boolean = false;
 
   constructor(public http: HttpClient, private cookieService: CookieService, private SServ: SatisfactionService, ) { }
 
   ngOnInit() {
+
     this.listAll(this.url);
   }
 
@@ -78,9 +64,8 @@ export class DashboardComponent implements OnInit {
       if (user === data[i]['user']['_id']) {
         this.mine.push(data[i]);
       }
-      this.setProgressBars(this.mine);
-
     }
+    this.setProgressBars(this.mine);
   }
 
   setProgressBars(data) {
@@ -122,45 +107,51 @@ export class DashboardComponent implements OnInit {
   }
 
   populateChart() {
-
-    let i = 6;
-    let k = 6;
+    let i = this.mine.length - 1;
+    let k = 0;
+    if (i < 6) {
+      k = i;
+    } else {
+      k = 6;
+    }
     while (i >= 0) {
       const d = new Date(this.mine[i]['createdAt']);
       const year = d.getFullYear();
       const month = d.getMonth();
       const day = d.getDate();
       const date = `${year}-${month + 1}-${day}`;
-      this.food.push([date, this.mine[i]['food']]);
+      this.sati.push([date, this.mine[i][`${this.category}`]]);
       i--;
     }
     while (k >= 0) {
-      this.pieChartData['dataTable'].push(this.food[k]);
+      this.pieChartData['dataTable'].push(this.sati[k]);
       k--;
     }
-    console.log(this.food);
+    this.pieChartData['dataTable'][0] = [`${this.category} Chart`, 'Satisfaction'];
+    this.pieChartData['options']['title'] = this.category;
     const clone = JSON.parse(JSON.stringify(this.pieChartData));
     this.pieChartData = clone;
-
-    let i2 = 6;
-    let k2 = 6;
-    while (i2 >= 0) {
-      const d2 = new Date(this.mine[i2]['createdAt']);
-      const year2 = d2.getFullYear();
-      const month2 = d2.getMonth();
-      const day2 = d2.getDate();
-      const date2 = `${year2}-${month2 + 1}-${day2}`;
-      this.fun.push([date2, this.mine[i2]['fun']]);
-      i2--;
-    }
-    while (k2 >= 0) {
-      this.pieChartData2['dataTable'].push(this.fun[k2]);
-      k2--;
-    }
-    console.log(this.fun);
-    const clone2 = JSON.parse(JSON.stringify(this.pieChartData2));
-    this.pieChartData2 = clone2;
     this.displayChart = true;
+
+    /* Reset the chart. */
+    setTimeout(() => {
+      i = this.mine.length - 1;
+      if (i < 6) {
+        k = i;
+      } else {
+        k = 6;
+      }
+      while (k >= 0) {
+        this.pieChartData['dataTable'].pop();
+        k--;
+      }
+      console.log(this.pieChartData);
+      this.sati = [];
+    }, 1000);
+  }
+
+  selectChangeHandler(event: any) {
+    this.category = event.target.value;
   }
 
 }

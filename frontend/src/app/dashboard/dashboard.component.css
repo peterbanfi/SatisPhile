@@ -6,6 +6,14 @@ i {
   padding: 15%;
 }
 
+/* .custom-bg {
+  background-image: url("../../assets/harmony.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+} */
+
 .custom-icons {
   border: 0 transparent;
   color: #6BBDCA;

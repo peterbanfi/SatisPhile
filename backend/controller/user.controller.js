@@ -32,7 +32,6 @@ module.exports = {
     User.register(new User({
         username: req.body.username,
         email: req.body.email,
-        rights: req.body.rights,
       }), req.body.password)
       .then(user => res.json(user))
       .catch((err) => {
