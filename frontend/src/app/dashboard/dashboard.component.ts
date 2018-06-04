@@ -52,7 +52,6 @@ export class DashboardComponent implements OnInit {
   listAll(url) {
     this.http.get(url)
       .subscribe(data => {
-        console.log(data);
         this.satisfactions = data;
         this.listMine(this.satisfactions);
       });
@@ -145,7 +144,6 @@ export class DashboardComponent implements OnInit {
         this.pieChartData['dataTable'].pop();
         k--;
       }
-      console.log(this.pieChartData);
       this.sati = [];
     }, 1000);
   }

@@ -2,17 +2,9 @@ i {
   border: 1px solid rgb(255, 255, 255);
   border-radius: 100%;
   color: rgb(255, 255, 255);
-  font-size: 5rem;
+  font-size: 4rem;
   padding: 15%;
 }
-
-/* .custom-bg {
-  background-image: url("../../assets/harmony.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-} */
 
 .custom-icons {
   border: 0 transparent;
@@ -49,4 +41,12 @@ i {
   cursor: pointer;
   height: 25px;
   width: 25px;
+}
+
+@media only screen and (max-width: 836px) {
+  i {
+    border: 1px hidden rgb(255, 255, 255);
+    font-size: 3rem;
+    padding: 5%;
+  }
 }

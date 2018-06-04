@@ -28,6 +28,7 @@ export class UserService {
     this.http.get('//localhost:8080/user/profile', options)
       .subscribe(data => {
         this.cookieService.put('abc', data['user']['_id']);
+        this.cookieService.put('zzxy', data['user']['username']);
         this.cookieService.put('xyz', 'true');
       });
   }
@@ -37,6 +38,7 @@ export class UserService {
       .subscribe(data => {
         this.cookieService.remove('abc');
         this.cookieService.remove('xyz');
+        this.cookieService.remove('zzxy');
       });
   }
 }

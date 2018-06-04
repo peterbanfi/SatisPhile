@@ -8,7 +8,7 @@
           <button *ngIf="!togLogged && !dashboard" type="button" class="btn btn-outline-dark" (click)="toggleLogin()">Login</button>
           <button *ngIf="togLogged || dashboard" type="button" class="btn btn-outline-dark" (click)="logout()">Logout</button>
           <button type="button" class="btn btn-outline-dark">Contact</button>
-          <button type="button" class="btn btn-outline-dark" (click)="toggleSignUp()">Sign Up</button>
+          <button *ngIf="!togLogged" type="button" class="btn btn-outline-dark" (click)="toggleSignUp()">Sign Up</button>
         </div>
         <br>
         <!-- LOGIN -->
