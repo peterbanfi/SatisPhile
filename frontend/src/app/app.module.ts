@@ -14,6 +14,7 @@ import { NavComponent } from './nav/nav.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SatisfactionService } from './satisfaction.service';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    NavComponent
+    NavComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
