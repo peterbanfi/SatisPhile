@@ -153,6 +153,21 @@
           <div class="col-4"></div>
         </div>
         <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="exampleFormControlSelect2">Select chart type</label>
+              <select class="form-control" id="exampleFormControlSelect2" (change)="selectChangeHandler2($event)">
+                <option value="LineChart" selected>Line Chart</option>
+                <option value="ColumnChart">Column Chart</option>
+                <option value="ScatterChart">Scatter Chart</option>
+                <option value="SteppedAreaChart">Stepped Area Chart</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row">
           <div class="col-12">
             <google-chart [data]="pieChartData" *ngIf="displayChart"></google-chart>
           </div>

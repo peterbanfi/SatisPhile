@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
 
   toggleLogin() {
     this.togLogin = !this.togLogin;
+    this.signUp = false;
   }
 
   checkLog() {
@@ -72,6 +73,7 @@ export class HomeComponent implements OnInit {
 
   toggleSignUp() {
     this.signUp = !this.signUp;
+    this.togLogin = false;
   }
 
   register() {

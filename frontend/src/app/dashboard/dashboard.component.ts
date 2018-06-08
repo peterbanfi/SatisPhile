@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   };
   sati: any = [];
   category: any = 'sleep';
+  type: any = 'LineChart';
   pieChartData = {
     chartType: 'LineChart',
     dataTable: [
@@ -102,7 +103,40 @@ export class DashboardComponent implements OnInit {
   addNewSat() {
     this.newSat['user'] = this.cookieService.get('abc');
     this.SServ.addSat(this.url, this.newSat, this.options);
-    this.listAll(this.url);
+    //Ez a frissen hozzáadott értékeket jeleníti meg a képernyőn.
+    const sleep = document.getElementById('sleep');
+    const food = document.getElementById('food');
+    const work = document.getElementById('work');
+    const fun = document.getElementById('fun');
+    for (const key in this.newSat) {
+      if (this.newSat.hasOwnProperty(key)) {
+        const element = this.newSat[key];
+        if (key === 'food' || key === 'work' || key === 'fun' || key === 'sleep') {
+          /* Le kell venni az előzőleg hozzáadott classokat */
+          document.getElementById(key).classList.remove('bg-danger');
+          document.getElementById(key).classList.remove('bg-success');
+          document.getElementById(key).classList.remove('bg-info');
+          if (element < 46) {
+            document.getElementById(key).classList.add('bg-danger');
+          }
+          if (element > 46 && element < 80) {
+            document.getElementById(key).classList.add('bg-info');
+          }
+          if (element >= 80) {
+            document.getElementById(key).classList.add('bg-success');
+          }
+        }
+      }
+    }
+    sleep.style.width = `${this.newSat.sleep}%`;
+    food.style.width = `${this.newSat.food}%`;
+    work.style.width = `${this.newSat.work}%`;
+    fun.style.width = `${this.newSat.fun}%`;
+    //A list all azért kell, hogy az ngModel a %-ot is hozzáadja a legutolsó bevitt adathoz
+    setTimeout(() => {
+      this.listAll(this.url);
+
+    }, 1000);
   }
 
   populateChart() {
@@ -118,7 +152,9 @@ export class DashboardComponent implements OnInit {
       const year = d.getFullYear();
       const month = d.getMonth();
       const day = d.getDate();
-      const date = `${year}-${month + 1}-${day}`;
+      const hour = d.getHours();
+      const minute = d.getMinutes();
+      const date = `${year}-${month + 1}-${day} ${hour}:${minute}`;
       this.sati.push([date, this.mine[i][`${this.category}`]]);
       i--;
     }
@@ -128,10 +164,10 @@ export class DashboardComponent implements OnInit {
     }
     this.pieChartData['dataTable'][0] = [`${this.category} Chart`, 'Satisfaction'];
     this.pieChartData['options']['title'] = this.category;
+    this.pieChartData['chartType'] = this.type;
     const clone = JSON.parse(JSON.stringify(this.pieChartData));
     this.pieChartData = clone;
     this.displayChart = true;
-
     /* Reset the chart. */
     setTimeout(() => {
       i = this.mine.length - 1;
@@ -151,5 +187,7 @@ export class DashboardComponent implements OnInit {
   selectChangeHandler(event: any) {
     this.category = event.target.value;
   }
-
+  selectChangeHandler2(event: any) {
+    this.type = event.target.value;
+  }
 }

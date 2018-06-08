@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  about: Boolean = false;
+  contact: Boolean = false;
   pieChartData = {
     chartType: 'LineChart',
     dataTable: [
@@ -28,15 +30,15 @@ export class ContactComponent implements OnInit {
     },
   };
   pieChartData2 = {
-    chartType: 'LineChart',
+    chartType: 'ColumnChart',
     dataTable: [
-      [`Work Chart`, 'Satisfaction'],
-      [`2018-05-01`, 53],
-      [`2018-05-02`, 59],
-      [`2018-05-03`, 53],
-      [`2018-05-04`, 66],
-      [`2018-05-05`, 60],
-      [`2018-05-06`, 43],
+      [`Work Chart`, 'hours'],
+      [`2018-05-01`, 5.3],
+      [`2018-05-02`, 5.9],
+      [`2018-05-03`, 5.3],
+      [`2018-05-04`, 6.6],
+      [`2018-05-05`, 6.0],
+      [`2018-05-06`, 4.3],
 
     ],
     options: {
@@ -49,15 +51,12 @@ export class ContactComponent implements OnInit {
     },
   };
   pieChartData3 = {
-    chartType: 'LineChart',
+    chartType: 'PieChart',
     dataTable: [
       [`Food Chart`, 'Satisfaction'],
-      [`2018-05-01`, 70],
-      [`2018-05-02`, 59],
-      [`2018-05-03`, 83],
-      [`2018-05-04`, 72],
-      [`2018-05-05`, 94],
-      [`2018-05-06`, 65],
+      [`Fruits`, 10],
+      [`Vegetables`, 29],
+      [`Meat`, 61],
 
     ],
     options: {
@@ -72,13 +71,13 @@ export class ContactComponent implements OnInit {
   pieChartData4 = {
     chartType: 'LineChart',
     dataTable: [
-      [`Sleep Chart`, 'Satisfaction'],
-      [`2018-05-01`, 53],
-      [`2018-05-02`, 23],
-      [`2018-05-03`, 44],
-      [`2018-05-04`, 61],
-      [`2018-05-05`, 25],
-      [`2018-05-06`, 33],
+      [`Sleep Chart`, 'hours'],
+      [`2018-05-01`, 5.3],
+      [`2018-05-02`, 2.3],
+      [`2018-05-03`, 4.4],
+      [`2018-05-04`, 6.1],
+      [`2018-05-05`, 2.5],
+      [`2018-05-06`, 3.3],
     ],
     options: {
       'title': 'Sleep Chart',
@@ -94,6 +93,15 @@ export class ContactComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showAbout() {
+    this.about = !this.about;
+    this.contact = false;
+  }
+  showContact() {
+    this.contact = !this.contact;
+    this.about = false;
   }
 
 }

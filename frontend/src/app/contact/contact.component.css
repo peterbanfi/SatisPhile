@@ -1,3 +1,7 @@
+.col-6 {
+  padding-right: 0;
+}
+
 .custom-bg {
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,4 +31,22 @@
 
 h1 {
   color: whitesmoke;
+}
+
+i {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 100%;
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  padding: 5%;
+}
+
+.custom-row {
+  background-color: rgba(0, 0, 0, .329);
+}
+
+@media only screen and (max-width: 836px) {
+  i {
+    display: none;
+  }
 }

@@ -1,13 +1,30 @@
-<div class="jumbotron jumbotron-fluid text-center">
-  <div class="container custom-center">
-    <h1 class="display-1">SatisPhile</h1>
+<section>
+  <div class="jumbotron jumbotron-fluid text-center">
+    <div class="container custom-center">
+      <h1 class="display-1">SatisPhile</h1>
+    </div>
   </div>
-</div>
-<section class="text-center ">
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-dark" (click)="showAbout()">About</button>
+          <button type="button" class="btn btn-outline-dark" routerLink="../home">Home</button>
+          <button type="button" class="btn btn-outline-dark" (click)="showContact()">Contact</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<section class="text-center" *ngIf="about">
   <div class="fun-bg custom-bg d-flex align-items-center">
     <div class="container">
-      <div class="row">
+      <div class="row custom-row">
         <div class="col-6  d-flex align-items-center">
+          <i class="fas fa-gamepad"></i>
           <h1 class="display-2">Fun</h1>
         </div>
         <div class="col-6">
@@ -18,8 +35,9 @@
   </div>
   <div class="work-bg custom-bg d-flex align-items-center">
     <div class="container">
-      <div class="row">
+      <div class="row custom-row">
         <div class="col-6  d-flex align-items-center">
+          <i class="fas fa-briefcase"></i>
           <h1 class="display-2">Work</h1>
         </div>
         <div class="col-6">
@@ -30,8 +48,9 @@
   </div>
   <div class="food-bg custom-bg d-flex align-items-center">
     <div class="container">
-      <div class="row">
+      <div class="row custom-row">
         <div class="col-6  d-flex align-items-center">
+          <i class="fas fa-utensils"></i>
           <h1 class="display-2">Food</h1>
         </div>
         <div class="col-6">
@@ -42,8 +61,9 @@
   </div>
   <div class="sleep-bg custom-bg d-flex align-items-center">
     <div class="container">
-      <div class="row">
+      <div class="row custom-row">
         <div class="col-6  d-flex align-items-center">
+          <i class="fas fa-moon"></i>
           <h1 class="display-2">Sleep</h1>
         </div>
         <div class="col-6">
