@@ -15,6 +15,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { SatisfactionService } from './satisfaction.service';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { ContactComponent } from './contact/contact.component';
+import { CustomDatePipe } from './custom-date.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     DashboardComponent,
     NavComponent,
-    ContactComponent
+    ContactComponent,
+    CustomDatePipe
   ],
   imports: [
     BrowserModule,
